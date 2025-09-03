@@ -1,4 +1,4 @@
-# Marc Jeillord Dela Cruz Esteban's Personal Portfolio
+# My Personal Portfolio
 
 ![Portfolio Screenshot](./assets/images/portfolio.png) 
 

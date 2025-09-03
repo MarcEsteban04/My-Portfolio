@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marc Esteban | Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="assets/images/profile.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body
+    class="custom-cursor bg-slate-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 transition-colors duration-300">
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+
+    <div class="aurora-bg hidden dark:block">
+        <div class="aurora-blob aurora-blob-1"></div>
+        <div class="aurora-blob aurora-blob-2"></div>
+    </div>
+
+    <header
+        class="bg-white/80 dark:bg-slate-900/70 backdrop-blur-lg fixed top-0 md:top-6 left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-[95%] max-w-6xl z-50 border-b border-slate-200/80 dark:border-slate-800/50 md:rounded-full shadow-lg shadow-black/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-code text-orange-500"></i>
+                    <span class="hidden sm:inline">Marc Esteban</span>
+                </a>
+                <div class="flex items-center">
+                    <nav id="main-nav" class="hidden md:flex items-center space-x-8">
+                        <a href="#about"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">About</a>
+                        <a href="#skills"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Skills</a>
+                        <a href="#education"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Education</a>
+                        <a href="#services"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Services</a>
+                        <a href="#experience"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Experience</a>
+                        <a href="#projects"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Projects</a>
+                        <a href="#awards"
+                            class="nav-link text-slate-600 dark:text-slate-300 transition duration-300">Awards</a>
+                    </nav>
+                    <div class="hidden md:flex items-center">
+                        <div class="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-6"></div>
+                        <a href="#contact"
+                            class="bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-5 rounded-full transition duration-300">Contact
+                            Me</a>
+                    </div>
+                    <button id="theme-toggle" type="button"
+                        class="ml-6 text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors duration-300">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-xl hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-xl hidden"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden text-slate-900 dark:text-white ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#about" class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-user mr-2"></i> About</a>
+                <a href="#skills"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-wrench mr-2"></i> Skills</a>
+                <a href="#education"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-graduation-cap mr-2"></i> Education</a>
+                <a href="#services"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-concierge-bell mr-2"></i> Services</a>
+                <a href="#experience"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-briefcase mr-2"></i> Experience</a>
+                <a href="#projects"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-rocket mr-2"></i> Projects</a>
+                <a href="#awards"
+                    class="nav-link block text-slate-600 dark:text-slate-300 hover:text-orange-500 py-2"><i
+                        class="fa-solid fa-trophy mr-2"></i> Awards</a>
+                <a href="#contact"
+                    class="nav-link block mt-2 bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg text-center transition duration-300"><i
+                        class="fa-solid fa-envelope mr-2"></i> Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-24 md:pt-32">
+        <section id="home" class="min-h-screen flex items-center -mt-24 md:-mt-32">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center w-full">
+                    <div class="text-center lg:text-left">
+                        <p class="text-xl md:text-2xl font-medium text-orange-500 animate-fade-in-up"
+                            style="animation-delay: 200ms;">Marc Jeillord D.C. Esteban</p>
+                        <h1 class="text-6xl md:text-8xl font-black tracking-tighter animate-fade-in-up"
+                            style="animation-delay: 400ms;">
+                            <span class="block text-slate-900 dark:text-white">Full-Stack Developer</span>
+                        </h1>
+                        <p class="mt-6 max-w-xl mx-auto lg:mx-0 text-xl md:text-2xl text-slate-600 dark:text-slate-400 animate-fade-in-up"
+                            style="animation-delay: 600ms;">
+                            A passionate developer crafting efficient, user-centered digital solutions with a focus on
+                            AI integration.
+                        </p>
+                        <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in-up"
+                            style="animation-delay: 800ms;">
+                            <a href="#projects"
+                                class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-10 text-lg rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center shadow-lg hover:shadow-orange-500/30">
+                                <i class="fa-solid fa-eye mr-2"></i> View My Work
+                            </a>
+                            <a href="https://linkedin.com/in/marc-esteban-b97217324" target="_blank"
+                                class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold py-4 px-10 text-lg rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center shadow-lg hover:shadow-slate-500/20">
+                                <i class="fa-brands fa-linkedin-in mr-2"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/MarcEsteban04" target="_blank"
+                                class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold py-4 px-10 text-lg rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center shadow-lg hover:shadow-slate-500/20">
+                                <i class="fa-brands fa-github mr-2"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center animate-fade-in-up" style="animation-delay: 500ms;">
+                        <div class="relative w-80 h-80 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]">
+                            <div
+                                class="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-500/50 via-blue-500/50 to-transparent transform -rotate-12 transition-transform duration-500 hover:rotate-0">
+                            </div>
+                            <div class="relative w-full h-full p-2 animate-gradient-glow rounded-3xl">
+                                <img src="assets/images/profile.png" alt="Profile Picture of Marc Esteban"
+                                    class="rounded-2xl w-full h-full object-cover shadow-2xl">
+                            </div>
+                            <div
+                                class="absolute top-[10%] left-[5%] w-12 h-12 bg-white/80 dark:bg-slate-800/80 p-2 rounded-full shadow-lg animate-float-1 backdrop-blur-sm">
+                                <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="React Icon">
+                            </div>
+                            <div
+                                class="absolute bottom-[15%] right-[2%] w-14 h-14 bg-white/80 dark:bg-slate-800/80 p-2 rounded-full shadow-lg animate-float-2 backdrop-blur-sm">
+                                <img src="https://www.vectorlogo.zone/logos/php/php-icon.svg" alt="PHP Icon">
+                            </div>
+                            <div
+                                class="absolute top-[20%] right-[10%] w-10 h-10 bg-white/80 dark:bg-slate-800/80 p-2 rounded-full shadow-lg animate-float-3 backdrop-blur-sm">
+                                <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
+                                    alt="Tailwind CSS Icon">
+                            </div>
+                            <div
+                                class="absolute bottom-[5%] left-[12%] w-12 h-12 bg-white/80 dark:bg-slate-800/80 p-2 rounded-full shadow-lg animate-float-4 backdrop-blur-sm">
+                                <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML Icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">About <span
+                            class="text-gradient animate-shimmer">Me</span></h2>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I'm a dedicated Full-Stack Developer with a fresh perspective, holding a Bachelor of Science in
+                        Computer Science from ACLC College. My passion lies in building dynamic, intelligent, and
+                        user-friendly web applications from the ground up. I am proficient across the full stack, with
+                        strong expertise in front-end technologies like <strong>HTML, CSS, JavaScript, and Tailwind
+                            CSS</strong>, and back-end development using <strong>PHP and Node.js</strong>. I have
+                        hands-on experience designing robust databases with <strong>MySQL and MongoDB</strong> and have
+                        successfully delivered comprehensive projects, including inventory management systems and custom
+                        software solutions. A key area of my focus is the integration of advanced AI technologies, like
+                        <strong>Google's Gemini API</strong>, to create smarter and more personalized user experiences.
+                        I am a firm believer in writing clean, maintainable code and am always eager to learn and apply
+                        new technologies to solve real-world problems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-6xl mx-auto">
+                    <h2 class="text-5xl md:text-6xl font-extrabold mb-16 text-slate-900 dark:text-white">My
+                        Technical
+                        <span class="text-gradient animate-shimmer">Toolkit</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+
+                        <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fa-solid fa-desktop text-3xl text-orange-500 w-8 text-center"></i>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Frontend</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg"
+                                        class="h-6 w-6"> HTML5
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg" class="h-6 w-6">
+                                    CSS3
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg"
+                                        class="h-6 w-6"> JavaScript
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
+                                        class="h-6 w-6"> React
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
+                                        class="h-6 w-6"> Tailwind
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg"
+                                        class="h-6 w-6"> Bootstrap
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fa-solid fa-server text-3xl text-orange-500 w-8 text-center"></i>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Backend</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/php/php-icon.svg" class="h-6 w-6"> PHP
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" class="h-6 w-6">
+                                    Node.js
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
+                                        class="h-6 w-6"> Express.js
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fa-solid fa-database text-3xl text-orange-500 w-8 text-center"></i>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Databases</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" class="h-6 w-6">
+                                    MySQL
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg"
+                                        class="h-6 w-6"> MongoDB
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl">
+                            <div class="flex items-center gap-4 mb-6">
+                                <i class="fa-solid fa-screwdriver-wrench text-3xl text-orange-500 w-8 text-center"></i>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Tools</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"
+                                        class="h-6 w-6"> Git
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" class="h-6 w-6">
+                                    GitHub
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" class="h-6 w-6">
+                                    Java
+                                </span>
+                                <span
+                                    class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-4 py-2 text-md font-medium">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Google_Gemini_logo.svg"
+                                        class="h-6 w-6"> Gemini AI
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-slate-900 dark:text-white">
+                            Education <span class="text-gradient animate-shimmer">&nbsp;</span>
+                        </h2>
+                        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            My academic journey in Computer Science, where I developed a strong foundation in software
+                            engineering, programming, and technology innovation.
+                        </p>
+                        <div
+                            class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl text-left flex items-center gap-6 mb-6">
+                            <i class="fa-solid fa-graduation-cap text-4xl text-orange-500 min-w-[40px]"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">ACLC College of Sta.
+                                    Maria</h3>
+                                <p class="text-md text-slate-600 dark:text-slate-400 mb-1">2021 - 2025</p>
+                                <ul class="list-disc list-inside text-lg text-slate-700 dark:text-slate-300">
+                                    <li>Bachelor of Science in Computer Science</li>
+                                    <li>GPA: <span class="font-bold">1.40 / 5.0</span> (1.0 being the highest)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="assets/images/aclc_picture.png" alt="ACLC College of Sta. Maria"
+                            class="gallery-thumbnail rounded-2xl shadow-2xl w-full object-contain transform hover:scale-105 transition-transform duration-500"">
+                            </div>
+                        </div>
+                    </div>
+        </section>
+
+        <section id="services" class="section-reveal min-h-screen flex items-center justify-center py-24">
+                        <div class="container mx-auto px-6">
+                            <div class="text-center max-w-5xl mx-auto">
+                                <h2 class="text-5xl md:text-6xl font-extrabold mb-16 text-slate-900 dark:text-white">
+                                    What I <span class="text-gradient animate-shimmer">Offer</span></h2>
+                                <div class="grid md:grid-cols-2 gap-8 text-left">
+                                    <div
+                                        class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-8 rounded-2xl flex flex-col">
+                                        <i class="fa-solid fa-graduation-cap text-4xl text-orange-500 mb-4"></i>
+                                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Capstone &
+                                            Thesis
+                                            Projects</h3>
+                                        <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">Struggling with
+                                            your academic
+                                            projects? I offer assistance with capstone and thesis systems, helping you
+                                            build a
+                                            robust project from the ground up.</p>
+                                        <ul class="space-y-3 text-slate-700 dark:text-slate-300">
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Web/Software
+                                                    Development</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Complete
+                                                    System
+                                                    Development</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Modern
+                                                    UI/UX
+                                                    Design</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Database
+                                                    Integration</span></li>
+                                        </ul>
+                                    </div>
+                                    <div
+                                        class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-8 rounded-2xl flex flex-col">
+                                        <i class="fa-solid fa-code text-4xl text-orange-500 mb-4"></i>
+                                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Custom Web
+                                            Development
+                                        </h3>
+                                        <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">From personal
+                                            portfolios to
+                                            full-fledged business websites, I create responsive, fast, and user-friendly
+                                            websites
+                                            tailored to your specific needs using the latest technologies.</p>
+                                        <ul class="space-y-3 text-slate-700 dark:text-slate-300">
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Fully
+                                                    Responsive
+                                                    Design</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Secure
+                                                    Backend
+                                                    Development</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>SEO-Friendly
+                                                    Codebase</span></li>
+                                            <li class="flex items-center gap-3"><i
+                                                    class="fa-solid fa-check-circle text-green-500"></i><span>Advanced
+                                                    AI
+                                                    Integration</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </section>
+
+        <section id="experience" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-16 text-slate-900 dark:text-white">Career
+                    <span class="text-gradient animate-shimmer">Journey</span>
+                </h2>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-4 top-0 h-full w-0.5 bg-slate-200 dark:bg-slate-800"></div>
+
+                    <div class="relative mb-12">
+                        <div
+                            class="absolute -left-0.5 top-2 h-10 w-10 rounded-full bg-slate-50 dark:bg-dark-bg border-4 border-slate-200 dark:border-slate-800 flex items-center justify-center">
+                            <i class="fa-solid fa-code text-orange-500 text-lg"></i>
+                        </div>
+                        <div class="pl-16">
+                            <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 rounded-2xl p-8">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Full-Stack Developer
+                                    </h3>
+                                    <span class="text-md text-slate-500 dark:text-slate-400 font-medium">Feb 2023 -
+                                        Present</span>
+                                </div>
+                                <p class="text-lg font-semibold text-orange-500 mb-4">Freelance / Self-Employed</p>
+                                <p class="text-lg text-slate-600 dark:text-slate-400">Partner with various clients and
+                                    students to design, develop, and deploy custom web solutions. Specialize in
+                                    building business websites and complex academic systems for thesis projects,
+                                    utilizing PHP, Node.js, and AI APIs to deliver high-quality applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative mb-12">
+                        <div
+                            class="absolute -left-0.5 top-2 h-10 w-10 rounded-full bg-slate-50 dark:bg-dark-bg border-4 border-slate-200 dark:border-slate-800 flex items-center justify-center">
+                            <i class="fa-solid fa-user-shield text-orange-500 text-lg"></i>
+                        </div>
+                        <div class="pl-16">
+                            <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 rounded-2xl p-8">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">IT Support Intern</h3>
+                                    <span class="text-md text-slate-500 dark:text-slate-400 font-medium">Jan 2024 - May
+                                        2024</span>
+                                </div>
+                                <p class="text-lg font-semibold text-orange-500 mb-4">Municipality of Sta. Maria,
+                                    Bulacan</p>
+                                <p class="text-lg text-slate-600 dark:text-slate-400">Provided crucial IT support within
+                                    the municipal office, including hardware/software troubleshooting, system
+                                    maintenance, network support, and OS installations to ensure smooth technology
+                                    operations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div
+                            class="absolute -left-0.5 top-2 h-10 w-10 rounded-full bg-slate-50 dark:bg-dark-bg border-4 border-slate-200 dark:border-slate-800 flex items-center justify-center">
+                            <i class="fa-solid fa-briefcase text-orange-500 text-lg"></i>
+                        </div>
+                        <div class="pl-16">
+                            <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 rounded-2xl p-8">
+                                <div class="flex justify-between items-start mb-1">
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Full-Stack Developer
+                                    </h3>
+                                    <span class="text-md text-slate-500 dark:text-slate-400 font-medium">Sep 2023 - Nov
+                                        2023</span>
+                                </div>
+                                <p class="text-lg font-semibold text-orange-500 mb-4">M5B Hardware (Project-Based)</p>
+                                <p class="text-lg text-slate-600 dark:text-slate-400">Designed and developed a complete
+                                    inventory management system with an integrated Point-of-Sale (POS) module. This
+                                    custom solution helped the client streamline stock tracking, manage sales, and
+                                    generate reports efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-16 text-slate-900 dark:text-white">
+                    Featured <span class="text-gradient animate-shimmer">Projects</span></h2>
+                <div class="grid lg:grid-cols-2 gap-10">
+
+                    <div
+                        class="glass-card-base bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/50 rounded-2xl p-6 flex flex-col">
+                        <div class="rounded-lg overflow-hidden mb-5 shadow-lg">
+                            <img src="assets/screenshots/screenshot1.png" alt="Project Screenshot 1"
+                                class="w-full h-60 object-cover">
+                        </div>
+                        <div class="flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-orange-500"><i
+                                    class="fa-regular fa-folder-open mr-2"></i> Thesis Project</p>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-2">AI-Powered Personalized
+                                Learning Assistant</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mt-3 flex-grow">
+                                <span class="inline-flex flex-wrap gap-2">
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'
+                                            class='h-5 w-5'>HTML5</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'
+                                            class='h-5 w-5'>CSS3</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg'
+                                            class='h-5 w-5'>Bootstrap</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/php/php-icon.svg'
+                                            class='h-5 w-5'>PHP</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg'
+                                            class='h-5 w-5'>MySQL</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://upload.wikimedia.org/wikipedia/commons/4/4b/Google_Gemini_logo.svg'
+                                            class='h-5 w-5'>Gemini AI</span>
+                                </span>
+                            </p>
+                            <div class="pt-5 mt-auto">
+                                <button
+                                    class="view-gallery-btn group inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+                                    data-title="AI-Powered Personalized Learning Assistant"
+                                    data-description="This project features a custom reviewer generator, performance tracking quizzes, an AI study planner, summarizer, and a flashcard generator. It also includes various administrative functionalities."
+                                    data-images='["assets/screenshots/Screenshot1.png", "assets/screenshots/Screenshot2.png", "assets/screenshots/Screenshot3.png", "assets/screenshots/Screenshot4.png", "assets/screenshots/Screenshot5.png", "assets/screenshots/Screenshot6.png", "assets/screenshots/Screenshot7.png", "assets/screenshots/Screenshot8.png", "assets/screenshots/Screenshot9.png", "assets/screenshots/Screenshot10.png", "assets/screenshots/Screenshot11.png", "assets/screenshots/Screenshot12.png", "assets/Screenshots/Screenshot13.png", "assets/screenshots/Screenshot14.png", "assets/screenshots/Screenshot15.png", "assets/screenshots/Screenshot16.png", "assets/screenshots/Screenshot17.png", "assets/screenshots/Screenshot18.png", "assets/screenshots/Screenshot19.png", "assets/screenshots/Screenshot20.png"]'>
+                                    <i class="fa-solid fa-images mr-2"></i> View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-card-base bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/50 rounded-2xl p-6 flex flex-col">
+                        <div class="rounded-lg overflow-hidden mb-5 shadow-lg">
+                            <img src="assets/screenshots/derma1.png" alt="Derma-AI Project Screenshot"
+                                class="w-full h-60 object-cover">
+                        </div>
+                        <div class="flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-orange-500"><i
+                                    class="fa-regular fa-folder-open mr-2"></i> Client Project</p>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-2">Derma-AI: Smart
+                                Appointment & Skincare Assistant</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mt-3 flex-grow">
+                                <span class="inline-flex flex-wrap gap-2">
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'
+                                            class='h-5 w-5'>HTML5</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'
+                                            class='h-5 w-5'>CSS3</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg'
+                                            class='h-5 w-5'>Tailwind CSS</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/php/php-icon.svg'
+                                            class='h-5 w-5'>PHP</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg'
+                                            class='h-5 w-5'>MySQL</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://upload.wikimedia.org/wikipedia/commons/4/4b/Google_Gemini_logo.svg'
+                                            class='h-5 w-5'>Gemini AI</span>
+                                </span>
+                            </p>
+                            <div class="pt-5 mt-auto">
+                                <button
+                                    class="view-gallery-btn group inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+                                    data-title="Derma-AI: Smart Appointment & Skincare Assistant"
+                                    data-description="A booking platform for a dermatology clinic, featuring intelligent appointment scheduling and an AI-powered assistant built with Gemini to answer patient queries about skin treatments, services, and post-procedure care."
+                                    data-images='["assets/screenshots/derma1.png", "assets/screenshots/derma2.png", "assets/screenshots/derma3.png", "assets/screenshots/derma4.png", "assets/screenshots/derma5.png", "assets/screenshots/derma6.png", "assets/screenshots/derma7.png", "assets/screenshots/derma8.png", "assets/screenshots/derma9.png", "assets/screenshots/derma10.png", "assets/screenshots/derma11.png", "assets/screenshots/derma12.png", "assets/screenshots/derma13.png", "assets/screenshots/derma14.png", "assets/screenshots/derma15.png"]'>
+                                    <i class="fa-solid fa-images mr-2"></i> View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-card-base bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/50 rounded-2xl p-6 flex flex-col">
+                        <div class="rounded-lg overflow-hidden mb-5 shadow-lg">
+                            <img src="assets/screenshots/rb_fireworks.png" alt="RB Fireworks Project Screenshot"
+                                class="w-full h-60 object-cover">
+                        </div>
+                        <div class="flex flex-col flex-grow">
+                            <p class="text-sm font-semibold text-orange-500"><i
+                                    class="fa-regular fa-folder-open mr-2"></i> Client Project</p>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-2">RB Fireworks E-Commerce
+                                Platform</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mt-3 flex-grow">
+                                <span class="inline-flex flex-wrap gap-2">
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg'
+                                            class='h-5 w-5'>HTML5</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/w3_css/w3_css-icon.svg'
+                                            class='h-5 w-5'>CSS3</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg'
+                                            class='h-5 w-5'>JavaScript</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/php/php-icon.svg'
+                                            class='h-5 w-5'>PHP</span>
+                                    <span
+                                        class="flex items-center gap-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-full px-3 py-1 text-sm font-medium"><img
+                                            src='https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg'
+                                            class='h-5 w-5'>MySQL</span>
+                                </span>
+                            </p>
+                            <div class="pt-5 mt-auto flex flex-wrap gap-4">
+                                <a href="https://cs42a.com/rb_fireworks_shop/" target="_blank"
+                                    class="group inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> View Live
+                                </a>
+                                <button
+                                    class="view-gallery-btn group inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+                                    data-title="RB Fireworks E-Commerce Platform"
+                                    data-description="Developed a fully functional online store with product catalog, shopping cart, checkout, and user authentication. Implemented cart and wishlist features, integrated secure order tracking, and optimized the UI for mobile responsiveness."
+                                    data-images='["assets/screenshots/rb_fireworks.png"]'>
+                                    <i class="fa-solid fa-circle-info mr-2"></i> View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="awards" class="section-reveal min-h-screen flex items-center py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6">Awards &
+                            <span class="text-gradient animate-shimmer">Recognition</span>
+                        </h2>
+                        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            I'm proud of my achievements in technology and my commitment to continuous learning and
+                            excellence in the field.
+                        </p>
+                        <div class="space-y-6">
+                            <div
+                                class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl text-left flex items-center gap-6">
+                                <i class="fa-solid fa-trophy text-4xl text-orange-500 min-w-[40px]"></i>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Technical Mastery
+                                        Award</h3>
+                                    <p class="text-md text-slate-600 dark:text-slate-400">For excellence in server-side
+                                        programming and integration.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-6 rounded-2xl text-left flex items-center gap-6">
+                                <i class="fa-solid fa-certificate text-4xl text-orange-500 min-w-[40px]"></i>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">CSARC Seminar 2024
+                                    </h3>
+                                    <p class="text-md text-slate-600 dark:text-slate-400">"API Data Security" & "AI for
+                                        Developers" certificates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img src="assets/images/awards.jpg" alt="Technical Mastery Award Certificate"
+                            class="gallery-thumbnail rounded-2xl shadow-2xl w-full object-contain transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-reveal min-h-screen flex items-center justify-center py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6">Let's <span
+                            class="text-gradient animate-shimmer">Connect</span></h2>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-10">Have a project in mind or just want to
+                        say hello? I’d love to hear from you. Feel free to send me a message using the form below, or
+                        contact me directly.</p>
+
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 mb-12 text-lg">
+                        <a href="mailto:marcdelacruzesteban@gmail.com"
+                            class="group flex items-center gap-3 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition-colors duration-300">
+                            <i class="fa-solid fa-envelope text-2xl text-orange-500"></i>
+                            <span>marcdelacruzesteban@gmail.com</span>
+                        </a>
+                        <a href="tel:09934528204"
+                            class="group flex items-center gap-3 text-slate-700 dark:text-slate-300 hover:text-orange-500 transition-colors duration-300">
+                            <i class="fa-solid fa-phone text-2xl text-orange-500"></i>
+                            <span>09934528204</span>
+                        </a>
+                    </div>
+
+                    <div class="glass-card-base bg-white/60 dark:bg-slate-900/60 p-8 lg:p-12 rounded-3xl text-left">
+                        <form id="contact-form" method="POST">
+                            <div class="space-y-6">
+                                <div class="grid sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name"
+                                            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Full
+                                            Name</label>
+                                        <input type="text" id="name" name="name" required
+                                            class="form-input w-full bg-slate-100/80 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition">
+                                    </div>
+                                    <div>
+                                        <label for="email"
+                                            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email
+                                            Address</label>
+                                        <input type="email" id="email" name="email" required
+                                            class="form-input w-full bg-slate-100/80 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="message"
+                                        class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5" required
+                                        class="form-input w-full bg-slate-100/80 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-slate-900 dark:text-slate-200 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition"></textarea>
+                                </div>
+                                <div>
+                                    <button id="submit-button" type="submit"
+                                        class="w-full group inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white font-bold text-lg py-4 px-10 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/40 disabled:opacity-50 disabled:cursor-not-allowed">
+                                        <span id="submit-button-text">
+                                            <i class="fa-solid fa-paper-plane mr-3"></i> Send Message
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800/50 mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-slate-500 dark:text-slate-400">&copy; 2025 Marc Jeillord D.C. Esteban. All Rights
+                    Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="https://linkedin.com/in/marc-esteban-b97217324" target="_blank"
+                        class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors duration-300"><i
+                            class="fa-brands fa-linkedin-in text-xl"></i></a>
+                    <a href="https://github.com/MarcEsteban04" target="_blank"
+                        class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors duration-300"><i
+                            class="fa-brands fa-github text-xl"></i></a>
+                    <a href="https://www.facebook.com/marcesteban04" target="_blank"
+                        class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors duration-300"><i
+                            class="fa-brands fa-facebook-f text-xl"></i></a>
+                    <a href="https://www.instagram.com/iwa_izumiii/" target="_blank"
+                        class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors duration-300"><i
+                            class="fa-brands fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal"
+        class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black bg-opacity-80 backdrop-blur-sm hidden">
+        <div
+            class="modal-content glass-card-base bg-white/95 dark:bg-slate-900/90 border-slate-200 dark:border-slate-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative transform scale-95 transition-all duration-300">
+            <button id="close-modal-btn"
+                class="absolute top-4 right-4 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <i class="fa-solid fa-times fa-2x"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white mb-2"></h3>
+            <p id="modal-description" class="text-slate-600 dark:text-slate-400 mb-6"></p>
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox-modal"
+        class="modal fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black bg-opacity-90 hidden">
+        <button id="close-lightbox-btn"
+            class="absolute top-6 right-6 text-white hover:text-orange-500 transition-colors">
+            <i class="fa-solid fa-times fa-2x"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged project screenshot"
+            class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg">
+    </div>
+
+    <div id="toast-success"
+        class="toast-notification fixed top-5 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-slate-500 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg divide-x rtl:divide-x-reverse divide-slate-200 dark:divide-slate-700 rounded-lg shadow-2xl z-[100]">
+        <div class="text-2xl text-green-500">
+            <i class="fa-solid fa-check-circle"></i>
+        </div>
+        <div class="ps-4 text-sm">
+            <div class="font-bold text-slate-800 dark:text-white">Success!</div>
+            <div class="font-normal text-slate-600 dark:text-slate-400">Your message has been sent.</div>
+        </div>
+    </div>
+    <div id="toast-error"
+        class="toast-notification fixed top-5 right-5 flex items-center w-full max-w-xs p-4 space-x-4 text-slate-500 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg divide-x rtl:divide-x-reverse divide-slate-200 dark:divide-slate-700 rounded-lg shadow-2xl z-[100]">
+        <div class="text-2xl text-red-500">
+            <i class="fa-solid fa-times-circle"></i>
+        </div>
+        <div class="ps-4 text-sm">
+            <div class="font-bold text-slate-800 dark:text-white">Error</div>
+            <div id="toast-error-message" class="font-normal text-slate-600 dark:text-slate-400">Something went wrong.
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/script.js"></script>
+</body>
+
+</html>

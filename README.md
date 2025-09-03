@@ -8,13 +8,13 @@
 
 </div>
 
-[cite_start]I am a Full-Stack Web Developer with 3 years of experience building scalable web applications and business solutions. [cite: 5] [cite_start]My expertise lies in using PHP, MySQL, JavaScript, Tailwind CSS, and the MERN stack to create responsive, user-friendly platforms. [cite: 5] [cite_start]I have a proven ability to deliver clean, maintainable code and develop solutions—including integrating Google Gemini AI—that enhance business efficiency. [cite: 6, 7]
+I am a Full-Stack Web Developer with 3 years of experience building scalable web applications and business solutions. My expertise lies in using PHP, MySQL, JavaScript, Tailwind CSS, and the MERN stack to create responsive, user-friendly platforms. I have a proven ability to deliver clean, maintainable code and develop solutions—including integrating Google Gemini AI—that enhance business efficiency.
 
 ---
 
 ## 🛠️ Core Technologies & Skills
 
-[cite_start]My technical skills include a range of modern technologies for front-end and back-end development. [cite: 8]
+My technical skills include a range of modern technologies for front-end and back-end development.
 
 | Category | Technologies |
 | :--- | :--- |
@@ -29,20 +29,20 @@
 
 Below are highlights of my professional and academic work, showcasing my ability to build comprehensive, real-world applications.
 
-### [cite_start]AI-Powered Dermatology Support System (Capstone Project) [cite: 32]
-[cite_start]A clinic management and diagnostic support system developed for DermaSculpt Clinic. [cite: 33]
-- [cite_start]**Integrated Google Gemini AI** to provide patient support and Al-assisted clinical insights. [cite: 33, 34]
-- [cite_start]Built key features like appointment scheduling, patient booking and communication, and symptom progress tracking. [cite: 34]
+### AI-Powered Dermatology Support System (Capstone Project)
+A clinic management and diagnostic support system developed for DermaSculpt Clinic. 
+- **Integrated Google Gemini AI** to provide patient support and Al-assisted clinical insights. 
+- Built key features like appointment scheduling, patient booking and communication, and symptom progress tracking. 
 
-### [cite_start]RB Fireworks E-commerce Platform [cite: 28]
-[cite_start]A fully functional online store built to handle product catalogs, sales, and user management. [cite: 30]
-- [cite_start]Implemented core e-commerce features including a shopping cart, wishlist, secure checkout, and user authentication. [cite: 30, 31]
-- [cite_start]Included an integrated order tracking system and an optimized, mobile-responsive UI. [cite: 31]
+### RB Fireworks E-commerce Platform
+A fully functional online store built to handle product catalogs, sales, and user management.
+- Implemented core e-commerce features including a shopping cart, wishlist, secure checkout, and user authentication. 
+- Included an integrated order tracking system and an optimized, mobile-responsive UI.
 
-### [cite_start]Inventory Management & POS System [cite: 13]
-[cite_start]A comprehensive system created for M5B Hardware to streamline operations. [cite: 11]
-- [cite_start]Built with HTML, PHP, CSS, JavaScript, and MySQL. [cite: 14]
-- [cite_start]Successfully improved inventory tracking and sales processing, which decreased manual data entry errors by 40%. [cite: 15]
+### Inventory Management & POS System 
+A comprehensive system created for M5B Hardware to streamline operations.
+- Built with HTML, PHP, CSS, JavaScript, and MySQL. 
+- Successfully improved inventory tracking and sales processing, which decreased manual data entry errors by 40%. 
 
 ---
 
@@ -58,7 +58,7 @@ This repository contains the code for my personal portfolio, which was built to 
 
 <div align="center">
 
-[cite_start]**[marcdelacruzesteban@gmail.com](mailto:marcdelacruzesteban@gmail.com)** [cite: 3]
+**[marcdelacruzesteban@gmail.com](mailto:marcdelacruzesteban@gmail.com)**
 
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marc-esteban)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-github-username)

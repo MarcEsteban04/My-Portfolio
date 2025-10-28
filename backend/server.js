@@ -66,8 +66,20 @@ const isValidEmail = (email) => {
   return emailRegex.test(email);
 };
 
+// Handle preflight OPTIONS request for CORS
+app.options('/api/send-email', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.sendStatus(200);
+});
+
 // Email sending endpoint
 app.post('/api/send-email', async (req, res) => {
+  // Add CORS headers explicitly
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   try {
     const { name, email, subject, message, urgency } = req.body;
 

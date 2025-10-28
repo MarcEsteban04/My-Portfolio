@@ -350,8 +350,21 @@ Sent on: ${new Date().toLocaleString()}
 
   } catch (error) {
     console.error('Email sending error:', error);
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      response: error.response,
+      responseCode: error.responseCode
+    });
+    console.error('Environment check:', {
+      EMAIL_USER: process.env.EMAIL_USER ? 'Set' : 'Not set',
+      EMAIL_PASS: process.env.EMAIL_PASS ? 'Set' : 'Not set',
+      RECIPIENT_EMAIL: process.env.RECIPIENT_EMAIL ? 'Set' : 'Not set'
+    });
     res.status(500).json({
-      error: 'Failed to send email. Please try again later or contact me directly.'
+      error: 'Failed to send email. Please try again later or contact me directly.',
+      details: error.message
     });
   }
 });

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: marc-portfolio-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: RECIPIENT_EMAIL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false

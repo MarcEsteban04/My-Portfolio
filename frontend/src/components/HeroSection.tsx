@@ -5,7 +5,7 @@ import { Download, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react
 import { useNavigation } from './NavigationProvider';
 
 export function HeroSection() {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
   const [greeting, setGreeting] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { setCurrentSection } = useNavigation();
@@ -18,14 +18,18 @@ export function HeroSection() {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    const hour = new Date().getHours();
+    // Set initial time and greeting on client side only
+    const now = new Date();
+    setCurrentTime(now);
+    
+    const hour = now.getHours();
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
+
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -47,17 +51,17 @@ export function HeroSection() {
     setCurrentImageIndex((prev) => (prev - 1 + backgroundImages.length) % backgroundImages.length);
   };
 
-  const formattedDate = currentTime.toLocaleDateString('en-US', {
+  const formattedDate = currentTime?.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  });
+  }) || '';
 
-  const formattedTime = currentTime.toLocaleTimeString('en-US', {
+  const formattedTime = currentTime?.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-  });
+  }) || '';
 
   return (
     <Card className="relative overflow-hidden border border-white/10 p-10 rounded-3xl shadow-2xl">

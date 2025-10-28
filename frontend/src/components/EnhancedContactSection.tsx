@@ -22,10 +22,10 @@ import {
   Clock,
   Zap,
   Users,
-  Video, 
   Coffee, 
   Globe, 
-  Heart 
+  Heart,
+  Facebook
 } from 'lucide-react';
 
 interface ContactMethod {
@@ -230,19 +230,11 @@ export function EnhancedContactSection() {
       preferred: false
     },
     {
-      icon: <MessageSquare />,
-      label: 'WhatsApp',
-      value: '+639934528204',
-      href: 'https://wa.me/639934528204',
-      responseTime: 'Within 1 hour',
-      preferred: false
-    },
-    {
-      icon: <Video />,
-      label: 'Video Call',
-      value: 'Schedule a meeting',
-      href: '#',
-      responseTime: 'By appointment',
+      icon: <Facebook />,
+      label: 'Facebook',
+      value: 'Marc Esteban',
+      href: 'https://www.facebook.com/marcesteban04',
+      responseTime: 'Within 1-2 hours',
       preferred: false
     }
   ];
@@ -362,181 +354,11 @@ export function EnhancedContactSection() {
       </ScrollAnimation>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Contact Form Column */}
+        {/* Contact Form Column - TEMPORARILY DISABLED */}
+        {/* Contact form has been temporarily disabled while backend issues are resolved */}
+        
+        {/* FAQ */}
         <div className="space-y-8">
-          <ScrollAnimation delay={300}>
-            <Card className="p-8 rounded-3xl shadow-lg border border-white/10 bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-xl">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
-              
-              <FormProgress step={currentStep} totalSteps={3} />
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-              {currentStep === 1 && (
-                <div className="space-y-4 animate-in slide-in-from-right-4 duration-300">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">Name *</label>
-                      <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Your full name"
-                        className="bg-background/50 border-white/10 focus:border-blue-500/50"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">Email *</label>
-                      <Input
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="your.email@example.com"
-                        className="bg-background/50 border-white/10 focus:border-blue-500/50"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Subject *</label>
-                    <Input
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="Project inquiry, collaboration, etc."
-                      className="bg-background/50 border-white/10 focus:border-blue-500/50"
-                      required
-                    />
-                  </div>
-
-                  <Button 
-                    type="button" 
-                    onClick={nextStep}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-3"
-                    disabled={!formData.name || !formData.email || !formData.subject}
-                  >
-                    Next Step →
-                  </Button>
-                </div>
-              )}
-
-              {currentStep === 2 && (
-                <div className="space-y-4 animate-in slide-in-from-right-4 duration-300">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Project Urgency</label>
-                    <select
-                      name="urgency"
-                      value={formData.urgency}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 rounded-lg bg-background/50 border border-white/10 text-foreground focus:border-blue-500/50"
-                    >
-                      <option value="low">Low - No rush</option>
-                      <option value="normal">Normal - Standard timeline</option>
-                      <option value="high">High - ASAP</option>
-                      <option value="urgent">Urgent - Emergency</option>
-                    </select>
-                  </div>
-
-                  <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Mail className="w-4 h-4 text-blue-500" />
-                      <h4 className="font-semibold text-foreground">Contact Method</h4>
-                    </div>
-                    <p className="text-sm text-muted-foreground">Your message will be sent via email to marcdelacruzesteban@gmail.com</p>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Button 
-                      type="button" 
-                      onClick={prevStep}
-                      variant="outline"
-                      className="flex-1"
-                    >
-                      ← Previous
-                    </Button>
-                    <Button 
-                      type="button" 
-                      onClick={nextStep}
-                      className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
-                    >
-                      Next Step →
-                    </Button>
-                  </div>
-                </div>
-              )}
-
-              {currentStep === 3 && (
-                <div className="space-y-4 animate-in slide-in-from-right-4 duration-300">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Message *</label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project, goals, timeline, and any specific requirements..."
-                      rows={6}
-                      className="bg-background/50 border-white/10 focus:border-blue-500/50 resize-none"
-                      required
-                    />
-                  </div>
-
-                  <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
-                    <h4 className="font-semibold text-foreground mb-2">Message Summary</h4>
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p><strong>From:</strong> {formData.name} ({formData.email})</p>
-                      <p><strong>Subject:</strong> {formData.subject}</p>
-                      <p><strong>Contact via:</strong> Email</p>
-                      <p><strong>Urgency:</strong> {formData.urgency}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Button 
-                      type="button" 
-                      onClick={prevStep}
-                      variant="outline"
-                      className="flex-1"
-                    >
-                      ← Previous
-                    </Button>
-                    <Button 
-                      type="submit" 
-                      className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-medium py-3 gap-2"
-                      disabled={isSubmitting || !formData.message}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </form>
-
-            {/* Error Messages */}
-            {submitStatus === 'error' && (
-              <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20 animate-in slide-in-from-top-2 duration-300">
-                <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-500" />
-                  <span className="text-red-400 font-medium">Failed to send message</span>
-                </div>
-                <p className="text-sm text-red-300 mt-1">Please try again or contact me directly.</p>
-              </div>
-            )}
-            </Card>
-          </ScrollAnimation>
-
-          {/* FAQ */}
           <ScrollAnimation delay={400}>
             <FAQ />
           </ScrollAnimation>

@@ -160,12 +160,24 @@ function FAQ() {
       answer: "Absolutely! I work with clients worldwide and am flexible with different time zones. I'm available for meetings via video call at mutually convenient times."
     },
     {
+      question: "What technologies do you specialize in?",
+      answer: "I specialize in React, Node.js, TypeScript, Python, and modern web frameworks. I'm also experienced with databases, cloud platforms, and AI integration."
+    },
+    {
+      question: "How do you handle project pricing?",
+      answer: "I offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. I provide detailed quotes after understanding your specific requirements."
+    },
+    {
       question: "What's your preferred project communication method?",
       answer: "I prefer a combination of email for formal communications and Slack/Discord for day-to-day project discussions. Video calls for important milestones and reviews."
     },
     {
       question: "Are you available for long-term projects?",
       answer: "Yes, I'm open to both short-term projects and long-term partnerships. I believe in building lasting relationships with clients and growing together."
+    },
+    {
+      question: "Do you provide ongoing support after project completion?",
+      answer: "Absolutely! I offer various support packages including bug fixes, feature updates, and maintenance. I believe in long-term partnerships with my clients."
     }
   ];
 
@@ -354,12 +366,71 @@ export function EnhancedContactSection() {
       </ScrollAnimation>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Contact Form Column - TEMPORARILY DISABLED */}
-        {/* Contact form has been temporarily disabled while backend issues are resolved */}
-        
-        {/* FAQ */}
+        {/* Enhanced Contact Information Column */}
         <div className="space-y-8">
+          {/* Quick Contact Card */}
+          <ScrollAnimation delay={300}>
+            <Card className="p-8 rounded-3xl shadow-lg border border-white/10 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl">
+              <div className="text-center space-y-6">
+                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                  <Mail className="w-10 h-10 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">Ready to Start Your Project?</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Let's discuss how I can help bring your ideas to life. I'm always excited about new challenges and collaborations.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <a
+                    href="mailto:marcdelacruzesteban@gmail.com?subject=Project Inquiry&body=Hi Marc, I'd like to discuss a project with you."
+                    className="flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-medium transition-all duration-300 hover:scale-105"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Send Email
+                  </a>
+                  <a
+                    href="tel:+639934528204"
+                    className="flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium transition-all duration-300 hover:scale-105"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Call Now
+                  </a>
+                </div>
+              </div>
+            </Card>
+          </ScrollAnimation>
+
+          {/* What I Can Help With */}
           <ScrollAnimation delay={400}>
+            <Card className="p-6 rounded-2xl shadow-lg border border-white/10 bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Zap className="w-6 h-6 text-yellow-500" />
+                What I Can Help With
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  { icon: <Globe className="w-5 h-5" />, title: "Web Development", desc: "Full-stack applications" },
+                  { icon: <Users className="w-5 h-5" />, title: "UI/UX Design", desc: "User-centered design" },
+                  { icon: <MessageSquare className="w-5 h-5" />, title: "Consulting", desc: "Technical guidance" },
+                  { icon: <Heart className="w-5 h-5" />, title: "Maintenance", desc: "Ongoing support" }
+                ].map((service, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-gradient-to-r from-background/40 to-muted/20 backdrop-blur-sm border border-white/10">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 text-blue-500">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">{service.title}</h4>
+                      <p className="text-xs text-muted-foreground">{service.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </ScrollAnimation>
+
+          {/* FAQ */}
+          <ScrollAnimation delay={500}>
             <FAQ />
           </ScrollAnimation>
         </div>
@@ -420,7 +491,37 @@ export function EnhancedContactSection() {
             </Card>
           </ScrollAnimation>
 
-          {/* Location & Fun Fact */}
+          {/* Working Hours & Availability */}
+          <ScrollAnimation delay={600}>
+            <Card className="p-6 rounded-2xl shadow-lg border border-white/10 bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-xl">
+              <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Clock className="w-6 h-6 text-blue-500" />
+                Working Hours
+              </h2>
+              <div className="space-y-3">
+                {[
+                  { day: "Monday - Friday", hours: "9:00 AM - 10:00 PM", timezone: "PHT" },
+                  { day: "Saturday", hours: "10:00 AM - 6:00 PM", timezone: "PHT" },
+                  { day: "Sunday", hours: "Available for urgent projects", timezone: "" }
+                ].map((schedule, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-background/40 to-muted/20 backdrop-blur-sm border border-white/10">
+                    <span className="font-medium text-foreground text-sm">{schedule.day}</span>
+                    <div className="text-right">
+                      <span className="text-sm text-muted-foreground">{schedule.hours}</span>
+                      {schedule.timezone && <span className="text-xs text-muted-foreground ml-1">({schedule.timezone})</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-blue-500">Note:</strong> I'm flexible with time zones for international clients. Let's find a time that works for both of us!
+                </p>
+              </div>
+            </Card>
+          </ScrollAnimation>
+
+          {/* Location & Fun Facts */}
           <ScrollAnimation delay={700}>
             <Card className="p-6 rounded-2xl shadow-lg border border-white/10 bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-xl">
               <div className="flex items-center gap-4 mb-4">
@@ -430,13 +531,48 @@ export function EnhancedContactSection() {
                   <p className="text-sm text-muted-foreground">Sta. Maria, Bulacan</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Coffee className="w-4 h-4 text-amber-500" />
-                <span>Fueled by coffee and passion for great code</span>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Coffee className="w-4 h-4 text-amber-500" />
+                  <span>Fueled by coffee and passion for great code</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Heart className="w-4 h-4 text-red-500" />
+                  <span>Always excited about new challenges and collaborations</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Globe className="w-4 h-4 text-blue-500" />
+                  <span>Open to remote work and international projects</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Users className="w-4 h-4 text-purple-500" />
+                  <span>3+ years of experience helping clients succeed</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
-                <Heart className="w-4 h-4 text-red-500" />
-                <span>Always excited about new challenges and collaborations</span>
+            </Card>
+          </ScrollAnimation>
+
+          {/* Response Time Guarantee */}
+          <ScrollAnimation delay={800}>
+            <Card className="p-6 rounded-2xl shadow-lg border border-white/10 bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-xl">
+              <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                <CheckCircle className="w-6 h-6 text-green-500" />
+                My Commitment to You
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { icon: <Clock className="w-4 h-4 text-blue-500" />, text: "Response within 2-4 hours during business hours" },
+                  { icon: <Star className="w-4 h-4 text-yellow-500" />, text: "Quality work that exceeds expectations" },
+                  { icon: <Heart className="w-4 h-4 text-red-500" />, text: "Transparent communication throughout the project" },
+                  { icon: <CheckCircle className="w-4 h-4 text-green-500" />, text: "On-time delivery and ongoing support" }
+                ].map((commitment, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="p-1 rounded-full bg-gradient-to-br from-background/40 to-muted/20">
+                      {commitment.icon}
+                    </div>
+                    <span className="text-sm text-muted-foreground">{commitment.text}</span>
+                  </div>
+                ))}
               </div>
             </Card>
           </ScrollAnimation>

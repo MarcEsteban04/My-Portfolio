@@ -378,6 +378,30 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Test email configuration endpoint
+app.get('/api/test-email-config', (req, res) => {
+  try {
+    const config = {
+      EMAIL_USER: process.env.EMAIL_USER ? 'Set ✓' : 'Missing ✗',
+      EMAIL_PASS: process.env.EMAIL_PASS ? 'Set ✓' : 'Missing ✗',
+      RECIPIENT_EMAIL: process.env.RECIPIENT_EMAIL ? 'Set ✓' : 'Missing ✗',
+      EMAIL_USER_VALUE: process.env.EMAIL_USER || 'Not set',
+      RECIPIENT_EMAIL_VALUE: process.env.RECIPIENT_EMAIL || 'Not set'
+    };
+    
+    res.status(200).json({
+      status: 'Email Configuration Check',
+      config: config,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: 'Error checking email config',
+      details: error.message
+    });
+  }
+});
+
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({

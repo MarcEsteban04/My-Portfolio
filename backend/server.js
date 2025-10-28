@@ -76,6 +76,9 @@ app.options('/api/send-email', (req, res) => {
 
 // Email sending endpoint
 app.post('/api/send-email', async (req, res) => {
+  console.log('POST /api/send-email endpoint hit!');
+  console.log('Request body:', req.body);
+  
   // Add CORS headers explicitly
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -404,8 +407,16 @@ app.get('/api/test-email-config', (req, res) => {
 
 // 404 handler
 app.use('*', (req, res) => {
+  console.log('404 - Endpoint not found:', {
+    method: req.method,
+    url: req.url,
+    path: req.path,
+    originalUrl: req.originalUrl
+  });
   res.status(404).json({
-    error: 'Endpoint not found'
+    error: 'Endpoint not found',
+    method: req.method,
+    url: req.url
   });
 });
 

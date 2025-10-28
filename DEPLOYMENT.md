@@ -119,14 +119,14 @@ NODE_ENV=production
 
 ### Frontend (Vercel)
 ```env
-PUBLIC_API_URL=https://my-portfolio-ubhj.onrender.com
+PUBLIC_API_URL=https://my-portfolio-wmvm.onrender.com
 ```
 
 ## Testing Deployment
 
 1. **Backend Health Check**:
    ```
-   GET https://my-portfolio-ubhj.onrender.com/api/health
+   GET https://my-portfolio-wmvm.onrender.com/api/health
    ```
 
 2. **Frontend Contact Form**:

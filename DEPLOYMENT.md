@@ -113,20 +113,20 @@ FRONTEND_URL=https://your-custom-domain.com
 EMAIL_USER=your_gmail_address@gmail.com
 EMAIL_PASS=your_gmail_app_password
 RECIPIENT_EMAIL=marcdelacruzesteban@gmail.com
-FRONTEND_URL=https://your-vercel-app.vercel.app
+FRONTEND_URL=https://marcesteban-portfolio.vercel.app
 NODE_ENV=production
 ```
 
 ### Frontend (Vercel)
 ```env
-PUBLIC_API_URL=https://marc-portfolio-api.onrender.com
+PUBLIC_API_URL=https://my-portfolio-ubhj.onrender.com
 ```
 
 ## Testing Deployment
 
 1. **Backend Health Check**:
    ```
-   GET https://marc-portfolio-api.onrender.com/api/health
+   GET https://my-portfolio-ubhj.onrender.com/api/health
    ```
 
 2. **Frontend Contact Form**:

@@ -293,9 +293,6 @@ export function EnhancedContactSection() {
       const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
       
-      // Debug logging
-      console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey ? 'Set' : 'Missing' });
-      
       const templateParams = {
         name: formData.name,
         email: formData.email,
@@ -304,8 +301,6 @@ export function EnhancedContactSection() {
         urgency: formData.urgency,
         time: new Date().toLocaleString()
       };
-
-      console.log('Template params:', templateParams);
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
@@ -334,8 +329,6 @@ export function EnhancedContactSection() {
         setShowConfetti(false);
       }, 3000);
     } catch (error: any) {
-      console.error('Error sending email:', error);
-      console.error('Error details:', error?.text, error?.status);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

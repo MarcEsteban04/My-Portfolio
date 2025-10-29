@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { ScrollAnimation } from './ScrollAnimation';
-import { MapPin, Calendar, Award, Briefcase, GraduationCap, Code, Coffee, Music, Camera, Gamepad2, ChevronDown, ChevronUp, Clock, TrendingUp } from 'lucide-react';
+import { MapPin, Calendar, Award, Briefcase, GraduationCap, Code, Coffee, Gamepad2, ChevronDown, ChevronUp, Clock, TrendingUp } from 'lucide-react';
 
 function TypingAnimation({ text, className = "", speed = 100 }: { text: string; className?: string; speed?: number }) {
   const [displayText, setDisplayText] = useState('');
@@ -307,8 +307,6 @@ export function EnhancedAboutSection() {
 
   const interests = [
     { icon: <Coffee />, name: 'Coffee', description: 'Specialty coffee enthusiast' },
-    { icon: <Music />, name: 'Music', description: 'Electronic & Lo-fi producer' },
-    { icon: <Camera />, name: 'Photography', description: 'Street & landscape photography' },
     { icon: <Gamepad2 />, name: 'Gaming', description: 'Strategy & indie games' },
   ];
 

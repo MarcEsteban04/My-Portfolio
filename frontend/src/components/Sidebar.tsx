@@ -257,17 +257,17 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
             collapsed={isCollapsed}
           />
           <NavItem 
-            icon={<Mail />} 
-            label="Contact" 
-            active={currentSection === 'contact'}
-            onClick={() => setCurrentSection('contact')}
-            collapsed={isCollapsed}
-          />
-          <NavItem 
             icon={<Github />} 
             label="GitHub" 
             active={currentSection === 'github'}
             onClick={() => setCurrentSection('github')}
+            collapsed={isCollapsed}
+          />
+          <NavItem 
+            icon={<Mail />} 
+            label="Contact" 
+            active={currentSection === 'contact'}
+            onClick={() => setCurrentSection('contact')}
             collapsed={isCollapsed}
           />
         </nav>

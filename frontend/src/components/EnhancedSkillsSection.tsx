@@ -405,6 +405,8 @@ export function EnhancedSkillsSection() {
     { skill: 'AWS', progress: 10, timeframe: '6 months', status: 'in-progress' },
     { skill: 'AI/ML', progress: 40, timeframe: '4 months', status: 'in-progress' },
     { skill: 'GraphQL', progress: 25, timeframe: '5 months', status: 'in-progress' },
+    { skill: 'Java', progress: 15, timeframe: '8 months', status: 'planned' },
+    { skill: 'C++', progress: 10, timeframe: '10 months', status: 'planned' },
   ];
 
   const categories = ['all', 'Frontend', 'Backend', 'Database', 'Tools'];

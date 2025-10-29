@@ -56,11 +56,13 @@ export function HeroSection() {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'Asia/Manila'
   }) || '';
 
   const formattedTime = currentTime?.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
+    timeZone: 'Asia/Manila'
   }) || '';
 
   return (

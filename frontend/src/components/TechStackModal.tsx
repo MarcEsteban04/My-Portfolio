@@ -139,6 +139,10 @@ export function TechStackModal({ isOpen, onClose }: TechStackModalProps) {
                       <div className="w-1.5 h-1.5 rounded-full bg-gray-500" />
                       <span><strong className="text-gray-500">Express.js</strong> - Web framework</span>
                     </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                      <span><strong className="text-purple-500">EmailJS</strong> - Contact form service</span>
+                    </li>
                   </ul>
                 </div>
               </div>

@@ -56,8 +56,9 @@ function AvailabilityStatus() {
       const now = new Date();
       setCurrentTime(now);
       
-      // Available 9 AM - 10 PM Philippine Time (UTC+8)
-      const hour = now.getHours();
+      // Get current hour in Philippine Time (UTC+8)
+      const philippineTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Manila"}));
+      const hour = philippineTime.getHours();
       setIsAvailable(hour >= 9 && hour <= 22);
     }, 1000);
 
@@ -299,7 +300,7 @@ export function EnhancedContactSection() {
         subject: formData.subject,
         message: formData.message,
         urgency: formData.urgency,
-        time: new Date().toLocaleString()
+        time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' })
       };
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);

@@ -124,6 +124,15 @@ export function MobileNav() {
               }}
             />
             <NavItem 
+              icon={<Github />} 
+              label="GitHub" 
+              active={currentSection === 'github'}
+              onClick={() => {
+                setCurrentSection('github');
+                setIsOpen(false);
+              }}
+            />
+            <NavItem 
               icon={<Mail />} 
               label="Contact" 
               active={currentSection === 'contact'}

@@ -293,14 +293,19 @@ export function EnhancedContactSection() {
       const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
       
+      // Debug logging
+      console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey ? 'Set' : 'Missing' });
+      
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
+        email: formData.email,
         subject: formData.subject,
         message: formData.message,
         urgency: formData.urgency,
-        to_email: 'marcdelacruzesteban@gmail.com'
+        time: new Date().toLocaleString()
       };
+
+      console.log('Template params:', templateParams);
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
@@ -328,8 +333,9 @@ export function EnhancedContactSection() {
         setSubmitStatus('idle');
         setShowConfetti(false);
       }, 3000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending email:', error);
+      console.error('Error details:', error?.text, error?.status);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -367,36 +373,105 @@ export function EnhancedContactSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Enhanced Contact Information Column */}
         <div className="space-y-8">
-          {/* Quick Contact Card */}
+          {/* Contact Form */}
           <ScrollAnimation delay={300}>
-            <Card className="p-8 rounded-3xl shadow-lg border border-white/10 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl">
-              <div className="text-center space-y-6">
-                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-                  <Mail className="w-10 h-10 text-white" />
+            <Card className="p-8 rounded-3xl shadow-lg border border-white/10 bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-xl">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Name</label>
+                    <Input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your name"
+                      className="bg-background/50 border-white/10 focus:border-blue-500/50"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Email</label>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="your.email@example.com"
+                      className="bg-background/50 border-white/10 focus:border-blue-500/50"
+                      required
+                    />
+                  </div>
                 </div>
+                
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Ready to Start Your Project?</h2>
-                  <p className="text-muted-foreground mb-6">
-                    Let's discuss how I can help bring your ideas to life. I'm always excited about new challenges and collaborations.
-                  </p>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Subject</label>
+                  <Input
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="Project inquiry, collaboration, etc."
+                    className="bg-background/50 border-white/10 focus:border-blue-500/50"
+                    required
+                  />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <a
-                    href="mailto:marcdelacruzesteban@gmail.com?subject=Project Inquiry&body=Hi Marc, I'd like to discuss a project with you."
-                    className="flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-medium transition-all duration-300 hover:scale-105"
-                  >
-                    <Mail className="w-5 h-5" />
-                    Send Email
-                  </a>
-                  <a
-                    href="tel:+639934528204"
-                    className="flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium transition-all duration-300 hover:scale-105"
-                  >
-                    <Phone className="w-5 h-5" />
-                    Call Now
-                  </a>
+                
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Message</label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell me about your project or how we can work together..."
+                    rows={6}
+                    className="bg-background/50 border-white/10 focus:border-blue-500/50 resize-none"
+                    required
+                  />
                 </div>
-              </div>
+
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">Urgency</label>
+                  <Select name="urgency" value={formData.urgency} onValueChange={(value) => setFormData({...formData, urgency: value})}>
+                    <SelectTrigger className="bg-background/50 border-white/10 focus:border-blue-500/50">
+                      <SelectValue placeholder="Select urgency level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="low">Low - No rush</SelectItem>
+                      <SelectItem value="normal">Normal - Standard timeline</SelectItem>
+                      <SelectItem value="high">High - ASAP</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-3 gap-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
+
+              {/* Error Messages */}
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20 animate-in slide-in-from-top-2 duration-300">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-500" />
+                    <span className="text-red-400 font-medium">Failed to send message</span>
+                  </div>
+                  <p className="text-sm text-red-300 mt-1">Please try again or contact me directly.</p>
+                </div>
+              )}
             </Card>
           </ScrollAnimation>
 
@@ -576,6 +651,7 @@ export function EnhancedContactSection() {
             </Card>
           </ScrollAnimation>
         </div>
+
       </div>
       
       {/* Confetti Animation */}

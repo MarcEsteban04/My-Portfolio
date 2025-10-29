@@ -456,7 +456,7 @@ export function EnhancedSkillsSection() {
         <div className="flex flex-wrap gap-2 p-2 bg-muted/30 rounded-2xl backdrop-blur-sm border border-white/10">
           {[
             { id: 'overview', label: 'Overview', icon: <TrendingUp className="w-4 h-4" /> },
-            { id: 'skills', label: 'Skills Map', icon: <Code className="w-4 h-4" /> },
+            { id: 'skills', label: 'Tech Stack', icon: <Code className="w-4 h-4" /> },
             { id: 'learning', label: 'Learning Path', icon: <BookOpen className="w-4 h-4" /> },
             { id: 'certifications', label: 'Certifications', icon: <Award className="w-4 h-4" /> },
           ].map((tab) => (

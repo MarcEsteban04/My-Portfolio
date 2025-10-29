@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Briefcase, User, Mail, FileText, Download, Moon, Sun, Github, Linkedin, Award, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Home, Briefcase, User, Mail, FileText, Download, Moon, Sun, Github, Linkedin, Award, Calendar, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 import { Button } from './ui/button';
 import { Switch } from './ui/switch';
 import { useTheme } from './ThemeProvider';
@@ -113,7 +113,11 @@ function NavItem({ icon, label, active, onClick, badge, count, progress, collaps
   );
 }
 
-export function Sidebar() {
+interface SidebarProps {
+  onOpenTechStackModal: () => void;
+}
+
+export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
   const { theme, toggleTheme } = useTheme();
   const { currentSection, setCurrentSection } = useNavigation();
   const { isCollapsed, toggleSidebar } = useSidebar();
@@ -268,6 +272,34 @@ export function Sidebar() {
           />
         </nav>
 
+
+        {/* About Portfolio Button */}
+        <div className="pt-4 border-t border-border/50">
+          {isCollapsed ? (
+            <div className="flex justify-center">
+              <button
+                onClick={onOpenTechStackModal}
+                className="group p-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 hover:border-blue-500/40 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                title="About this Portfolio"
+              >
+                <Info className="w-4 h-4 text-blue-500 group-hover:text-blue-400 transition-colors duration-300" />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={onOpenTechStackModal}
+              className="w-full group flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 hover:border-blue-500/40 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <div className="p-1.5 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors duration-300">
+                <Info className="w-4 h-4 text-blue-500" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-foreground">About this Portfolio</div>
+                <div className="text-xs text-muted-foreground">Built with Astro, Node.js & Tailwind</div>
+              </div>
+            </button>
+          )}
+        </div>
 
         {/* Social Links Quick Access */}
         {!isCollapsed && (

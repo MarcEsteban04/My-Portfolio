@@ -3,10 +3,11 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { ScrollAnimation } from './ScrollAnimation';
 import { ConfettiAnimation, triggerSuccessConfetti } from './ConfettiAnimation';
 import { SuccessModal } from './SuccessModal';
-import { getApiUrl, API_CONFIG } from '../config/api';
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -287,48 +288,46 @@ export function EnhancedContactSection() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.SEND_EMAIL), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          urgency: formData.urgency,
-        }),
-      });
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        urgency: formData.urgency,
+        to_email: 'marcdelacruzesteban@gmail.com'
+      };
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        // Trigger confetti animation
-        setShowConfetti(true);
-        triggerSuccessConfetti();
-        
-        // Show success modal after a brief delay to let confetti start
-        setTimeout(() => {
-          setShowSuccessModal(true);
-        }, 500);
-        
-        // Reset form after success
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
-            contactMethod: 'email',
-            urgency: 'normal'
-          });
-          setCurrentStep(1);
-          setSubmitStatus('idle');
-          setShowConfetti(false);
-        }, 3000);
-      } else {
-        setSubmitStatus('error');
-      }
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      // Trigger confetti animation
+      setShowConfetti(true);
+      triggerSuccessConfetti();
+      
+      // Show success modal after a brief delay to let confetti start
+      setTimeout(() => {
+        setShowSuccessModal(true);
+      }, 500);
+      
+      // Reset form after success
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          contactMethod: 'email',
+          urgency: 'normal'
+        });
+        setCurrentStep(1);
+        setSubmitStatus('idle');
+        setShowConfetti(false);
+      }, 3000);
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sidebar } from './Sidebar';
 import { MobileNav } from './MobileNav';
 import { HeroSection } from './HeroSection';
@@ -11,12 +11,14 @@ import { EnhancedAboutSection } from './EnhancedAboutSection';
 import { EnhancedContactSection } from './EnhancedContactSection';
 import { EnhancedSkillsSection } from './EnhancedSkillsSection';
 import { EnhancedGitHubSection } from './EnhancedGitHubSection';
+import { TechStackModal } from './TechStackModal';
 import { useNavigation } from './NavigationProvider';
 import { useSidebar } from './SidebarProvider';
 
 export function DashboardLayout() {
   const { currentSection } = useNavigation();
   const { isCollapsed } = useSidebar();
+  const [isTechStackModalOpen, setIsTechStackModalOpen] = useState(false);
 
   const sidebarMargin = isCollapsed ? "lg:ml-[100px]" : "lg:ml-[320px]";
 
@@ -114,7 +116,7 @@ export function DashboardLayout() {
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:block relative z-10">
-        <Sidebar />
+        <Sidebar onOpenTechStackModal={() => setIsTechStackModalOpen(true)} />
       </div>
 
       {/* Mobile Navigation */}
@@ -122,6 +124,12 @@ export function DashboardLayout() {
 
       {/* Dynamic Content */}
       {renderContent()}
+
+      {/* Tech Stack Modal */}
+      <TechStackModal 
+        isOpen={isTechStackModalOpen} 
+        onClose={() => setIsTechStackModalOpen(false)} 
+      />
     </div>
   );
 }

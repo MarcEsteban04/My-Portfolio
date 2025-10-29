@@ -118,12 +118,13 @@ export function HeroSection() {
           </Button>
           
           <Button 
-            variant="outline"
+            variant="outline" 
+            size="lg"
             className="px-6 py-3 gap-2 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl text-white"
             onClick={() => setCurrentSection('contact')}
           >
             <MessageCircle className="w-4 h-4" />
-            Message Me
+            Hire Me
           </Button>
         </div>
 

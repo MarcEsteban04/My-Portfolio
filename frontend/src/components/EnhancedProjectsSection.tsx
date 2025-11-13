@@ -13,7 +13,7 @@ interface ProjectProps {
   tags: string[];
   category: string;
   period: string;
-  status: 'completed' | 'in-progress' | 'concept';
+  status: 'completed' | 'in-progress' | 'concept' | 'planning';
   impact?: string;
   featured?: boolean;
   image?: string;
@@ -34,7 +34,8 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
   const statusConfig = {
     completed: { icon: <CheckCircle className="w-4 h-4" />, color: 'from-green-500 to-green-600', text: 'Completed' },
     'in-progress': { icon: <Clock className="w-4 h-4" />, color: 'from-blue-500 to-blue-600', text: 'In Progress' },
-    concept: { icon: <Lightbulb className="w-4 h-4" />, color: 'from-purple-500 to-purple-600', text: 'Concept' }
+    concept: { icon: <Lightbulb className="w-4 h-4" />, color: 'from-purple-500 to-purple-600', text: 'Concept' },
+    planning: { icon: <AlertCircle className="w-4 h-4" />, color: 'from-orange-500 to-orange-600', text: 'Planning' }
   };
 
 
@@ -484,10 +485,74 @@ export function EnhancedProjectsSection() {
       ],
       liveUrl: 'https://financeai-v1.vercel.app/',
       githubUrl: '#'
+    },
+    {
+      id: '5',
+      title: 'Rental Marketplace (Airbnb-style)',
+      description: 'Full-featured rental marketplace with host payouts, security deposits, and calendar-based availability.',
+      longDescription: 'A comprehensive rental marketplace platform similar to Airbnb featuring host payouts after guest checkout, security deposit holds, dispute/refund management, and calendar-based availability system. Includes advanced booking management, real-time messaging, and integrated payment processing.',
+      tags: ['Next.js', 'NestJS', 'Stripe Connect', 'PostgreSQL', 'Redis'],
+      category: 'Marketplace',
+      period: 'Planning Phase 2025',
+      status: 'planning',
+      impact: 'Targeting rental market automation',
+      metrics: {
+        users: 'TBD',
+        performance: 'TBD',
+        satisfaction: 'TBD'
+      }
+    },
+    {
+      id: '6',
+      title: 'Emergency Roadside Assistance Platform',
+      description: 'Real-time roadside assistance platform connecting drivers with nearby mechanics and service providers.',
+      longDescription: 'Emergency roadside assistance platform with real-time location tracking, ETA calculations, route visualization, and mechanic payouts. Features live updates via WebSocket, Google Maps integration for distance calculations and directions, and comprehensive payment processing through Stripe.',
+      tags: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Redis', 'Socket.io', 'Google Maps API', 'Stripe API'],
+      category: 'Emergency Services',
+      period: 'Planning Phase 2025',
+      status: 'planning',
+      impact: 'Targeting emergency response efficiency',
+      metrics: {
+        users: 'TBD',
+        performance: 'TBD',
+        satisfaction: 'TBD'
+      }
+    },
+    {
+      id: '7',
+      title: 'HOA Management Platform',
+      description: 'Comprehensive HOA management system for homeowners and administrators with payment tracking and community features.',
+      longDescription: 'A web application for homeowners to view announcements, pay dues, file maintenance requests, and see property maps. Administrators can manage residents, payments, and updates through a comprehensive dashboard. Features interactive community mapping, payment tracking via Stripe & PayMongo, maintenance request system, and event management.',
+      tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Prisma ORM', 'PostgreSQL', 'NextAuth.js', 'Stripe API', 'PayMongo API', 'Leaflet.js'],
+      category: 'Property Management',
+      period: 'Planning Phase 2025',
+      status: 'planning',
+      impact: 'Targeting HOA management efficiency',
+      metrics: {
+        users: 'TBD',
+        performance: 'TBD',
+        satisfaction: 'TBD'
+      }
+    },
+    {
+      id: '8',
+      title: 'Sales & Client CRM',
+      description: 'Intuitive CRM system for managing clients, leads, deals, and activities with pipeline visualization.',
+      longDescription: 'Comprehensive CRM solution for managing clients, leads, deals, and activities through an intuitive dashboard. Includes pipeline visualization, automated reminders, detailed notes system, email logging, and advanced analytics. Built with modern technologies for optimal performance and user experience.',
+      tags: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'ShadCN UI', 'PostgreSQL', 'Supabase', 'Prisma', 'NextAuth.js', 'React Query', 'Recharts'],
+      category: 'CRM',
+      period: 'Planning Phase 2025',
+      status: 'planning',
+      impact: 'Targeting sales process optimization',
+      metrics: {
+        users: 'TBD',
+        performance: 'TBD',
+        satisfaction: 'TBD'
+      }
     }
   ];
 
-  const categories = ['all', 'Healthcare', 'E-commerce', 'Education', 'Finance'];
+  const categories = ['all', 'Healthcare', 'E-commerce', 'Education', 'Finance', 'Marketplace', 'Emergency Services', 'Property Management', 'CRM'];
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -530,7 +595,7 @@ export function EnhancedProjectsSection() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of my work spanning e-commerce platforms, AI-powered applications, 
-            and innovative web solutions that drive business growth.
+            marketplace solutions, CRM systems, and innovative web solutions that drive business growth.
           </p>
         </div>
       </ScrollAnimation>

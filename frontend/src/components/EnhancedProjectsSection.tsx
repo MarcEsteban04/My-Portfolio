@@ -45,8 +45,8 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
       <div className="aspect-video bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-pink-500/10 relative overflow-hidden">
         {project.image ? (
           <>
-            <img 
-              src={project.image} 
+            <img
+              src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -58,7 +58,7 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
           </>
         ) : project.liveUrl ? (
           <>
-            <iframe 
+            <iframe
               src={project.liveUrl}
               className="w-full h-full border-0 scale-50 origin-top-left transform"
               style={{ width: '200%', height: '200%' }}
@@ -79,7 +79,7 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
             </div>
           </>
         )}
-        
+
         {/* Status Badge */}
         <div className={`absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-gradient-to-r ${statusConfig[project.status].color} rounded-full text-white text-xs font-medium`}>
           {statusConfig[project.status].icon}
@@ -93,13 +93,13 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
             Featured
           </div>
         )}
-        
+
         {/* Period */}
         <div className="absolute bottom-4 right-4 flex items-center gap-2 text-xs text-white bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
           <Calendar className="w-3 h-3" />
           {project.period}
         </div>
-        
+
         {/* Floating particles */}
         <div className="absolute top-6 right-12 w-2 h-2 bg-blue-500/30 rounded-full animate-pulse" />
         <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-500/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
@@ -148,9 +148,9 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
 
         {/* Actions */}
         <div className="flex gap-2 pt-2">
-          <Button 
-            variant="outline" 
-            size="sm" 
+          <Button
+            variant="outline"
+            size="sm"
             className="flex-1 gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-white/10 hover:border-white/20 transition-all duration-300"
             onClick={() => onViewDetails(project)}
           >
@@ -158,9 +158,9 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
             Details
           </Button>
           {project.images && project.images.length > 1 && (
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="gap-2 bg-gradient-to-r from-orange-500/10 to-red-500/10 border-white/10 hover:border-white/20 transition-all duration-300"
               onClick={() => onViewGallery(project)}
             >
@@ -169,9 +169,9 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
             </Button>
           )}
           {project.liveUrl && (
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="gap-2 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-white/10 hover:border-white/20 transition-all duration-300"
               asChild
             >
@@ -182,9 +182,9 @@ function ProjectCard({ project, onViewDetails, onViewGallery }: { project: Proje
             </Button>
           )}
           {project.githubUrl && project.githubUrl !== '#' && (
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-white/10 hover:border-white/20 transition-all duration-300"
               asChild
             >
@@ -217,9 +217,9 @@ function GalleryModal({ project, isOpen, onClose }: { project: ProjectProps | nu
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="relative w-full max-w-6xl max-h-[90vh]">
         {/* Close Button */}
-        <Button 
-          variant="ghost" 
-          onClick={onClose} 
+        <Button
+          variant="ghost"
+          onClick={onClose}
           className="absolute top-4 right-4 z-10 bg-black/50 text-white hover:bg-black/70"
         >
           ✕
@@ -266,9 +266,8 @@ function GalleryModal({ project, isOpen, onClose }: { project: ProjectProps | nu
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                  index === currentImageIndex ? 'border-blue-500 scale-110' : 'border-white/30 hover:border-white/60'
-                }`}
+                className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${index === currentImageIndex ? 'border-blue-500 scale-110' : 'border-white/30 hover:border-white/60'
+                  }`}
               >
                 <img
                   src={image}
@@ -327,7 +326,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: ProjectProps | nu
 
           <div className="flex gap-4 pt-4 border-t border-white/10">
             {project.liveUrl && (
-              <Button 
+              <Button
                 className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white gap-2"
                 asChild
               >
@@ -338,8 +337,8 @@ function ProjectModal({ project, isOpen, onClose }: { project: ProjectProps | nu
               </Button>
             )}
             {project.githubUrl && project.githubUrl !== '#' && (
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="flex-1 gap-2"
                 asChild
               >
@@ -485,79 +484,15 @@ export function EnhancedProjectsSection() {
       ],
       liveUrl: 'https://financeai-v1.vercel.app/',
       githubUrl: '#'
-    },
-    {
-      id: '5',
-      title: 'Rental Marketplace (Airbnb-style)',
-      description: 'Full-featured rental marketplace with host payouts, security deposits, and calendar-based availability.',
-      longDescription: 'A comprehensive rental marketplace platform similar to Airbnb featuring host payouts after guest checkout, security deposit holds, dispute/refund management, and calendar-based availability system. Includes advanced booking management, real-time messaging, and integrated payment processing.',
-      tags: ['Next.js', 'NestJS', 'Stripe Connect', 'PostgreSQL', 'Redis'],
-      category: 'Marketplace',
-      period: 'Planning Phase 2025',
-      status: 'planning',
-      impact: 'Targeting rental market automation',
-      metrics: {
-        users: 'TBD',
-        performance: 'TBD',
-        satisfaction: 'TBD'
-      }
-    },
-    {
-      id: '6',
-      title: 'Emergency Roadside Assistance Platform',
-      description: 'Real-time roadside assistance platform connecting drivers with nearby mechanics and service providers.',
-      longDescription: 'Emergency roadside assistance platform with real-time location tracking, ETA calculations, route visualization, and mechanic payouts. Features live updates via WebSocket, Google Maps integration for distance calculations and directions, and comprehensive payment processing through Stripe.',
-      tags: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Redis', 'Socket.io', 'Google Maps API', 'Stripe API'],
-      category: 'Emergency Services',
-      period: 'Planning Phase 2025',
-      status: 'planning',
-      impact: 'Targeting emergency response efficiency',
-      metrics: {
-        users: 'TBD',
-        performance: 'TBD',
-        satisfaction: 'TBD'
-      }
-    },
-    {
-      id: '7',
-      title: 'HOA Management Platform',
-      description: 'Comprehensive HOA management system for homeowners and administrators with payment tracking and community features.',
-      longDescription: 'A web application for homeowners to view announcements, pay dues, file maintenance requests, and see property maps. Administrators can manage residents, payments, and updates through a comprehensive dashboard. Features interactive community mapping, payment tracking via Stripe & PayMongo, maintenance request system, and event management.',
-      tags: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Prisma ORM', 'PostgreSQL', 'NextAuth.js', 'Stripe API', 'PayMongo API', 'Leaflet.js'],
-      category: 'Property Management',
-      period: 'Planning Phase 2025',
-      status: 'planning',
-      impact: 'Targeting HOA management efficiency',
-      metrics: {
-        users: 'TBD',
-        performance: 'TBD',
-        satisfaction: 'TBD'
-      }
-    },
-    {
-      id: '8',
-      title: 'Sales & Client CRM',
-      description: 'Intuitive CRM system for managing clients, leads, deals, and activities with pipeline visualization.',
-      longDescription: 'Comprehensive CRM solution for managing clients, leads, deals, and activities through an intuitive dashboard. Includes pipeline visualization, automated reminders, detailed notes system, email logging, and advanced analytics. Built with modern technologies for optimal performance and user experience.',
-      tags: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'ShadCN UI', 'PostgreSQL', 'Supabase', 'Prisma', 'NextAuth.js', 'React Query', 'Recharts'],
-      category: 'CRM',
-      period: 'Planning Phase 2025',
-      status: 'planning',
-      impact: 'Targeting sales process optimization',
-      metrics: {
-        users: 'TBD',
-        performance: 'TBD',
-        satisfaction: 'TBD'
-      }
     }
   ];
 
-  const categories = ['all', 'Healthcare', 'E-commerce', 'Education', 'Finance', 'Marketplace', 'Emergency Services', 'Property Management', 'CRM'];
+  const categories = ['all', 'Healthcare', 'E-commerce', 'Education', 'Finance'];
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesCategory = selectedCategory === 'all' || project.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -594,8 +529,8 @@ export function EnhancedProjectsSection() {
             My Projects
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my work spanning e-commerce platforms, AI-powered applications, 
-            marketplace solutions, CRM systems, and innovative web solutions that drive business growth.
+            A showcase of my work spanning healthcare systems, e-commerce platforms, AI-powered applications,
+            and innovative web solutions that drive business growth.
           </p>
         </div>
       </ScrollAnimation>
@@ -609,11 +544,10 @@ export function EnhancedProjectsSection() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                    : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
+                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${selectedCategory === category
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                  : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                  }`}
               >
                 {category === 'all' ? 'All Projects' : category}
               </button>
@@ -666,14 +600,14 @@ export function EnhancedProjectsSection() {
       )}
 
       {/* Project Details Modal */}
-      <ProjectModal 
+      <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
 
       {/* Gallery Modal */}
-      <GalleryModal 
+      <GalleryModal
         project={selectedProject}
         isOpen={isGalleryOpen}
         onClose={() => setIsGalleryOpen(false)}

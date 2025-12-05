@@ -484,6 +484,28 @@ export function EnhancedProjectsSection() {
       ],
       liveUrl: 'https://financeai-v1.vercel.app/',
       githubUrl: '#'
+    },
+    {
+      id: '5',
+      title: 'Lumena - AI Teacher Copilot',
+      description: 'Comprehensive teacher dashboard combining classroom management, AI-powered quiz generation, student tracking, and analytics.',
+      longDescription: 'Lumena is a comprehensive teacher dashboard that combines classroom management, quiz generation, student tracking, and analytics into one seamless platform. The application leverages AI to help teachers create engaging content, track student performance, and manage their daily tasks more efficiently. Features include AI-powered quiz generation, real-time student performance tracking, classroom management tools, and comprehensive analytics dashboards.',
+      tags: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase', 'PostgreSQL', 'Lucide React', 'ShadCN UI', 'Next.js API Routes', 'ESLint', 'Turbopack'],
+      category: 'Education',
+      period: 'In Development 2025',
+      status: 'in-progress',
+      impact: 'Empowering teachers with AI-driven classroom management',
+      client: 'EdTech Initiative',
+      metrics: {
+        users: 'In Development',
+        performance: 'TBD',
+        satisfaction: 'TBD'
+      },
+      image: '/lumena-landing.png',
+      images: [
+        '/lumena-landing.png'
+      ],
+      githubUrl: '#'
     }
   ];
 

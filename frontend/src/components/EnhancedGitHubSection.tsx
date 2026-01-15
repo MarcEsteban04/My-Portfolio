@@ -3,6 +3,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { ScrollAnimation } from './ScrollAnimation';
 import { Github, GitBranch, Star, GitFork, Calendar, Code, TrendingUp, ExternalLink, Eye, Users, BookOpen, Clock, Zap, Activity, GitCommit, PieChart } from 'lucide-react';
+import { GitHubContributionGraph } from './GitHubContributionGraph';
 
 interface GitHubStats {
   public_repos: number;
@@ -71,7 +72,7 @@ export function EnhancedGitHubSection() {
   const fetchGitHubData = async () => {
     try {
       setLoading(true);
-      
+
       // Fetch user stats
       const userResponse = await fetch(`https://api.github.com/users/${username}`);
       if (!userResponse.ok) throw new Error('Failed to fetch user data');
@@ -86,13 +87,13 @@ export function EnhancedGitHubSection() {
 
       // Fetch real contribution data
       await fetchContributions();
-      
+
       // Calculate language statistics from real data
       await calculateRealLanguageStats(reposData);
-      
+
       // Fetch real recent activity
       await fetchRecentActivity();
-      
+
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -239,7 +240,7 @@ export function EnhancedGitHubSection() {
 
   const generateRecentActivity = (repositories: Repository[]) => {
     const activities: RecentActivity[] = [];
-    const sortedRepos = repositories.sort((a, b) => 
+    const sortedRepos = repositories.sort((a, b) =>
       new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
     ).slice(0, 8);
 
@@ -247,7 +248,7 @@ export function EnhancedGitHubSection() {
       const daysSinceUpdate = Math.floor(
         (Date.now() - new Date(repo.updated_at).getTime()) / (1000 * 60 * 60 * 24)
       );
-      
+
       if (daysSinceUpdate <= 30) {
         activities.push({
           type: daysSinceUpdate <= 7 ? 'push' : 'commit',
@@ -270,10 +271,10 @@ export function EnhancedGitHubSection() {
         generateRealisticContributions();
         return;
       }
-      
+
       const events = await eventsResponse.json();
       const contributionMap: { [key: string]: number } = {};
-      
+
       // Process events to count contributions per day
       events.forEach((event: any) => {
         if (['PushEvent', 'CreateEvent', 'PullRequestEvent', 'IssuesEvent'].includes(event.type)) {
@@ -281,26 +282,26 @@ export function EnhancedGitHubSection() {
           contributionMap[date] = (contributionMap[date] || 0) + 1;
         }
       });
-      
+
       // Generate contribution data for the past year
       const days: ContributionDay[] = [];
       const today = new Date();
-      
+
       for (let i = 364; i >= 0; i--) {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
         const dateStr = date.toISOString().split('T')[0];
-        
+
         const count = contributionMap[dateStr] || 0;
         const level = count === 0 ? 0 : count <= 2 ? 1 : count <= 5 ? 2 : count <= 8 ? 3 : 4;
-        
+
         days.push({
           date: dateStr,
           count,
           level
         });
       }
-      
+
       setContributions(days);
     } catch (error) {
       console.error('Failed to fetch contributions:', error);
@@ -312,33 +313,33 @@ export function EnhancedGitHubSection() {
     // More realistic contribution pattern based on typical developer activity
     const days: ContributionDay[] = [];
     const today = new Date();
-    
+
     for (let i = 364; i >= 0; i--) {
       const date = new Date(today);
       date.setDate(date.getDate() - i);
-      
+
       const dayOfWeek = date.getDay();
       const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       const isRecentMonth = i <= 30;
-      
+
       let count = 0;
       let level = 0;
-      
+
       // More activity in recent months, less on weekends
       const baseChance = isRecentMonth ? (isWeekend ? 0.4 : 0.8) : (isWeekend ? 0.2 : 0.6);
-      
+
       if (Math.random() < baseChance) {
         count = isRecentMonth ? Math.floor(Math.random() * 8) + 1 : Math.floor(Math.random() * 5) + 1;
         level = count <= 2 ? 1 : count <= 4 ? 2 : count <= 6 ? 3 : 4;
       }
-      
+
       days.push({
         date: date.toISOString().split('T')[0],
         count,
         level
       });
     }
-    
+
     setContributions(days);
   };
 
@@ -375,7 +376,7 @@ export function EnhancedGitHubSection() {
     return ['all', ...Array.from(new Set(languages))];
   };
 
-  const filteredRepos = repos.filter(repo => 
+  const filteredRepos = repos.filter(repo =>
     filter === 'all' || repo.language === filter
   );
 
@@ -504,11 +505,10 @@ export function EnhancedGitHubSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                activeTab === tab.id
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${activeTab === tab.id
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
                   : 'text-muted-foreground hover:text-foreground hover:bg-white/10'
-              }`}
+                }`}
             >
               {tab.icon}
               <span className="hidden sm:inline">{tab.label}</span>
@@ -529,9 +529,9 @@ export function EnhancedGitHubSection() {
               {recentActivity.map((activity, index) => (
                 <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-background/40 to-muted/20 border border-white/10">
                   <div className="p-2 rounded-lg bg-blue-500/20">
-                    {activity.type === 'commit' ? <GitCommit className="w-4 h-4 text-blue-500" /> : 
-                     activity.type === 'push' ? <Zap className="w-4 h-4 text-green-500" /> :
-                     <Github className="w-4 h-4 text-purple-500" />}
+                    {activity.type === 'commit' ? <GitCommit className="w-4 h-4 text-blue-500" /> :
+                      activity.type === 'push' ? <Zap className="w-4 h-4 text-green-500" /> :
+                        <Github className="w-4 h-4 text-purple-500" />}
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-foreground">{activity.message}</p>
@@ -567,9 +567,9 @@ export function EnhancedGitHubSection() {
                       <span className="text-sm text-muted-foreground">{lang.percentage.toFixed(1)}%</span>
                     </div>
                     <div className="w-full bg-muted/30 rounded-full h-2">
-                      <div 
+                      <div
                         className="h-2 rounded-full transition-all duration-1000 ease-out"
-                        style={{ 
+                        style={{
                           backgroundColor: lang.color,
                           width: `${lang.percentage}%`,
                           animationDelay: `${index * 100}ms`
@@ -587,7 +587,7 @@ export function EnhancedGitHubSection() {
                       const circumference = 2 * Math.PI * 40;
                       const strokeDasharray = `${(lang.percentage / 100) * circumference} ${circumference}`;
                       const strokeDashoffset = -((prevPercentage / 100) * circumference);
-                      
+
                       return (
                         <circle
                           key={lang.name}
@@ -620,47 +620,7 @@ export function EnhancedGitHubSection() {
       {/* Contribution Graph - Only show in overview */}
       {activeTab === 'overview' && (
         <ScrollAnimation delay={400}>
-          <Card className="p-8 rounded-3xl bg-gradient-to-br from-background/60 to-muted/20 backdrop-blur-xl border border-white/10">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-foreground">Contribution Activity</h3>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  <span>{currentStreak} day streak</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>Past year</span>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-53 gap-1">
-              {contributions.map((day, index) => (
-                <div
-                  key={index}
-                  className={`w-3 h-3 rounded-sm ${
-                    day.level === 0 ? 'bg-muted/20' :
-                    day.level === 1 ? 'bg-green-500/30' :
-                    day.level === 2 ? 'bg-green-500/50' :
-                    day.level === 3 ? 'bg-green-500/70' :
-                    'bg-green-500'
-                  }`}
-                  title={`${day.count} contributions on ${day.date}`}
-                />
-              ))}
-            </div>
-            <div className="flex items-center justify-between mt-4 text-xs text-muted-foreground">
-              <span>Less</span>
-              <div className="flex items-center gap-1">
-                <div className="w-3 h-3 rounded-sm bg-muted/20" />
-                <div className="w-3 h-3 rounded-sm bg-green-500/30" />
-                <div className="w-3 h-3 rounded-sm bg-green-500/50" />
-                <div className="w-3 h-3 rounded-sm bg-green-500/70" />
-                <div className="w-3 h-3 rounded-sm bg-green-500" />
-              </div>
-              <span>More</span>
-            </div>
-          </Card>
+          <GitHubContributionGraph username={username} />
         </ScrollAnimation>
       )}
 
@@ -671,11 +631,10 @@ export function EnhancedGitHubSection() {
             <button
               key={language}
               onClick={() => setFilter(language)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                filter === language
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${filter === language
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
                   : 'bg-gradient-to-r from-muted/30 to-muted/10 text-muted-foreground hover:text-foreground hover:from-muted/50 hover:to-muted/30 border border-white/10 hover:border-white/20'
-              }`}
+                }`}
             >
               {language === 'all' ? 'All Languages' : language}
             </button>
@@ -708,7 +667,7 @@ export function EnhancedGitHubSection() {
                     )}
                   </div>
                 </div>
-                
+
                 {repo.description && (
                   <p className="text-sm text-muted-foreground line-clamp-2">
                     {repo.description}

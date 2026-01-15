@@ -13,7 +13,7 @@ export function HeroSection() {
   // Background carousel images from public folder
   const backgroundImages = [
     "/react code.jpg",
-    "/ai.jpg", 
+    "/ai.jpg",
     "/backend code.jpg"
   ];
 
@@ -21,7 +21,7 @@ export function HeroSection() {
     // Set initial time and greeting on client side only
     const now = new Date();
     setCurrentTime(now);
-    
+
     const hour = now.getHours();
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
@@ -72,11 +72,10 @@ export function HeroSection() {
         {backgroundImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
           >
-            <img 
+            <img
               src={image}
               alt={`Background ${index + 1}`}
               className="w-full h-full object-cover"
@@ -89,10 +88,10 @@ export function HeroSection() {
       {/* Content Overlay */}
       <div className="relative z-10 ml-16 md:ml-20">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-xs font-medium text-white/80 uppercase tracking-wider">Available for work</span>
+          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-xs font-medium text-white/80 uppercase tracking-wider">Currently Employed</span>
         </div>
-        
+
         <h1 className="text-4xl font-bold text-white mb-3">
           {greeting}, I'm Marc
         </h1>
@@ -100,14 +99,14 @@ export function HeroSection() {
           {formattedDate} • {formattedTime}
         </p>
         <p className="text-lg text-white/90 max-w-2xl leading-relaxed mb-6">
-          Welcome to my digital portfolio! I'm passionate about creating innovative web solutions 
-          that blend cutting-edge technology with exceptional user experiences. Let's build something 
+          Welcome to my digital portfolio! I'm passionate about creating innovative web solutions
+          that blend cutting-edge technology with exceptional user experiences. Let's build something
           amazing together.
         </p>
-        
+
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
-          <Button 
+          <Button
             className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium px-6 py-3 gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
             asChild
           >
@@ -116,9 +115,9 @@ export function HeroSection() {
               Download Resume
             </a>
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             size="lg"
             className="px-6 py-3 gap-2 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl text-white"
             onClick={() => setCurrentSection('contact')}
@@ -134,16 +133,15 @@ export function HeroSection() {
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImageIndex 
-                  ? 'bg-white' 
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex
+                  ? 'bg-white'
                   : 'bg-white/40 hover:bg-white/60'
-              }`}
+                }`}
             />
           ))}
         </div>
       </div>
-      
+
       {/* Navigation Arrows */}
       <button
         onClick={prevImage}

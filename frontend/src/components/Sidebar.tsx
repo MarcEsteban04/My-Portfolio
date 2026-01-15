@@ -33,26 +33,26 @@ function NavItem({ icon, label, active, onClick, badge, count, progress, collaps
       >
         <div className={cn(
           'p-1.5 rounded-lg transition-all duration-300 flex items-center justify-center',
-          active 
-            ? 'bg-blue-500/20 text-blue-500' 
+          active
+            ? 'bg-blue-500/20 text-blue-500'
             : 'text-muted-foreground group-hover:text-foreground group-hover:bg-white/10'
         )}>
           <span className="w-4 h-4 flex items-center justify-center">{icon}</span>
         </div>
-        
+
         {/* Indicators for collapsed state */}
         {(badge || count) && (
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full animate-pulse" />
         )}
         {progress && (
           <div className="absolute bottom-1 left-1 right-1 h-0.5 bg-muted rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-1000"
               style={{ width: progress }}
             />
           </div>
         )}
-        
+
         {active && (
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-xl" />
         )}
@@ -73,15 +73,15 @@ function NavItem({ icon, label, active, onClick, badge, count, progress, collaps
       <div className="flex items-center gap-3">
         <div className={cn(
           'p-1.5 rounded-lg transition-all duration-300 flex items-center justify-center',
-          active 
-            ? 'bg-blue-500/20 text-blue-500' 
+          active
+            ? 'bg-blue-500/20 text-blue-500'
             : 'text-muted-foreground group-hover:text-foreground group-hover:bg-white/10'
         )}>
           <span className="w-4 h-4 flex items-center justify-center">{icon}</span>
         </div>
         <span className="font-medium">{label}</span>
       </div>
-      
+
       <div className="flex items-center gap-2">
         {badge && (
           <span className="px-2 py-0.5 text-xs font-semibold bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full animate-pulse">
@@ -96,7 +96,7 @@ function NavItem({ icon, label, active, onClick, badge, count, progress, collaps
         {progress && (
           <div className="flex items-center gap-1">
             <div className="w-8 h-1 bg-muted rounded-full overflow-hidden">
-              <div 
+              <div
                 className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-1000"
                 style={{ width: progress }}
               />
@@ -105,7 +105,7 @@ function NavItem({ icon, label, active, onClick, badge, count, progress, collaps
           </div>
         )}
       </div>
-      
+
       {active && (
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-xl" />
       )}
@@ -152,9 +152,9 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
               "rounded-full overflow-hidden bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl",
               isCollapsed ? "w-12 h-12" : "w-32 h-32"
             )}>
-              <img 
-                src="/ESTEBAN.jpg" 
-                alt="Marc Esteban" 
+              <img
+                src="/ESTEBAN.jpg"
+                alt="Marc Esteban"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -170,12 +170,12 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
             </div>
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
-          
+
           {!isCollapsed && (
             <div className="text-center space-y-2">
               <h2 className="text-lg font-bold text-foreground">Marc Esteban</h2>
               <p className="text-sm text-muted-foreground font-medium">Full-Stack Web Developer</p>
-              
+
               {/* Achievement Badges */}
               <div className="flex gap-2 justify-center mt-3">
                 <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30">
@@ -189,7 +189,7 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
               </div>
             </div>
           )}
-          
+
           {/* Dark Mode Toggle under Profile */}
           <div className="w-full">
             {isCollapsed ? (
@@ -220,8 +220,8 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
                     {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
                   </span>
                 </div>
-                <Switch 
-                  checked={theme === 'dark'} 
+                <Switch
+                  checked={theme === 'dark'}
                   onCheckedChange={toggleTheme}
                   className="data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-blue-500 data-[state=checked]:to-purple-500"
                 />
@@ -233,39 +233,39 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
 
         {/* Navigation */}
         <nav className="space-y-2">
-          <NavItem 
-            icon={<Home />} 
-            label="About Me" 
+          <NavItem
+            icon={<Home />}
+            label="About Me"
             active={currentSection === 'dashboard'}
             onClick={() => setCurrentSection('dashboard')}
             collapsed={isCollapsed}
           />
-          <NavItem 
-            icon={<Briefcase />} 
-            label="Projects" 
+          <NavItem
+            icon={<Briefcase />}
+            label="Projects"
             active={currentSection === 'projects'}
             onClick={() => setCurrentSection('projects')}
             count="4"
             collapsed={isCollapsed}
           />
-          <NavItem 
-            icon={<User />} 
-            label="Skills" 
+          <NavItem
+            icon={<User />}
+            label="Skills"
             active={currentSection === 'about'}
             onClick={() => setCurrentSection('about')}
             progress="85%"
             collapsed={isCollapsed}
           />
-          <NavItem 
-            icon={<Github />} 
-            label="GitHub" 
+          <NavItem
+            icon={<Github />}
+            label="GitHub"
             active={currentSection === 'github'}
             onClick={() => setCurrentSection('github')}
             collapsed={isCollapsed}
           />
-          <NavItem 
-            icon={<Mail />} 
-            label="Contact" 
+          <NavItem
+            icon={<Mail />}
+            label="Contact"
             active={currentSection === 'contact'}
             onClick={() => setCurrentSection('contact')}
             collapsed={isCollapsed}
@@ -305,23 +305,23 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
         {!isCollapsed && (
           <div className="pt-4 border-t border-border/50">
             <div className="flex items-center justify-center gap-3">
-              <a 
-                href="https://github.com/MarcEsteban04" 
-                target="_blank" 
+              <a
+                href="https://github.com/MarcEsteban04"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group p-2 rounded-lg bg-gradient-to-br from-background/60 to-muted/20 border border-white/10 hover:border-white/20 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Github className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/marc-esteban/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/marc-esteban/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group p-2 rounded-lg bg-gradient-to-br from-background/60 to-muted/20 border border-white/10 hover:border-white/20 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Linkedin className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 transition-colors duration-300" />
               </a>
-              <a 
+              <a
                 href="mailto:marcdelacruzesteban@gmail.com"
                 className="group p-2 rounded-lg bg-gradient-to-br from-background/60 to-muted/20 border border-white/10 hover:border-white/20 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
@@ -336,13 +336,13 @@ export function Sidebar({ onOpenTechStackModal }: SidebarProps) {
       <div className="mt-6">
         {isCollapsed ? (
           <div className="flex justify-center">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" title="Available for opportunities" />
+            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" title="Currently Employed" />
           </div>
         ) : (
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>Available for opportunities</span>
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+              <span>Currently Employed</span>
             </div>
           </div>
         )}
